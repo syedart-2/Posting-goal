@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Weekly Posting Schedule · May-July 2026</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Segoe UI', Tahoma, sans-serif; background: #0a0a14; color: #e0e0e0; min-height: 100vh; padding: 20px 16px; line-height: 1.5; }
+.wrap { max-width: 1100px; margin: 0 auto; }
+
+/* Header */
+.header { text-align: center; padding: 30px 20px; background: linear-gradient(135deg, #0d2a1a 0%, #1a0d2a 100%); border-radius: 14px; border: 1px solid #22c55e30; margin-bottom: 24px; }
+.header h1 { font-size: 24px; font-weight: 700; color: #fff; margin-bottom: 6px; }
+.header .sub { font-size: 11px; color: #4ade80; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 4px; }
+.header .date { font-size: 12px; color: #888; margin-top: 8px; }
+
+/* Tabs */
+.tabs { display: flex; gap: 4px; margin-bottom: 20px; background: #12121e; padding: 4px; border-radius: 10px; }
+.tab { flex: 1; padding: 10px 16px; text-align: center; border-radius: 8px; cursor: pointer; font-size: 14px; font-weight: 600; color: #888; transition: all 0.2s; }
+.tab.active { background: #1a1a2e; color: #fff; }
+.tab:hover:not(.active) { color: #aaa; }
+
+.panel { display: none; }
+.panel.active { display: block; }
+
+/* Section */
+.section { margin-bottom: 24px; }
+.section-title { font-size: 18px; font-weight: 700; color: #fff; margin-bottom: 4px; padding-bottom: 8px; border-bottom: 2px solid #22c55e; }
+.section-title.ig { border-color: #ec4899; }
+.section-title.fb { border-color: #1877f2; }
+.section-sub { font-size: 12px; color: #888; margin-bottom: 16px; }
+
+/* Schedule grid */
+.schedule-table { width: 100%; background: #12121e; border-radius: 10px; overflow: hidden; border-collapse: collapse; }
+.schedule-table th { background: #1a1a2e; color: #4ade80; padding: 12px 8px; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; white-space: nowrap; }
+.schedule-table th.ig-head { color: #ec4899; }
+.schedule-table th.fb-head { color: #60a5fa; }
+.schedule-table td { padding: 12px 8px; border-bottom: 1px solid #1a1a2e; font-size: 13px; text-align: center; }
+.schedule-table tr:last-child td { border-bottom: none; }
+.schedule-table td.name { text-align: left; font-weight: 600; color: #fff; padding-left: 16px; }
+.schedule-table tr:nth-child(even) td { background: #0e0e1a; }
+
+/* Post indicator */
+.post { display: inline-block; width: 24px; height: 24px; border-radius: 6px; line-height: 24px; text-align: center; font-size: 10px; font-weight: 700; color: #fff; }
+.post.ig { background: #ec4899; }
+.post.fb { background: #1877f2; }
+.post.rest { background: #1a1a2e; color: #333; }
+
+/* Summary cards */
+.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; margin: 20px 0; }
+.card { background: #12121e; border-radius: 10px; padding: 14px; }
+.card-label { font-size: 10px; color: #888; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px; }
+.card-val { font-size: 22px; font-weight: 700; color: #fff; }
+.card-sub { font-size: 10px; color: #666; margin-top: 4px; }
+.card.ig { border-left: 3px solid #ec4899; }
+.card.fb { border-left: 3px solid #1877f2; }
+.card.total { border-left: 3px solid #4ade80; }
+
+/* Notes */
+.note { background: #12121e; border-left: 3px solid #60a5fa; border-radius: 8px; padding: 14px 16px; margin: 12px 0; font-size: 12px; color: #ccc; line-height: 1.7; }
+.note strong { color: #fff; }
+
+/* Instructions */
+.instructions { background: #1a1a2e; border-radius: 10px; padding: 16px; margin-bottom: 16px; }
+.instructions h3 { font-size: 14px; color: #facc15; margin-bottom: 8px; }
+.instructions ul { list-style: none; padding: 0; }
+.instructions li { font-size: 12px; color: #aaa; padding: 4px 0; padding-left: 20px; position: relative; }
+.instructions li:before { content: "→"; position: absolute; left: 0; color: #facc15; }
+
+.footer { text-align: center; padding: 20px 0; font-size: 10px; color: #444; }
+
+@media (max-width: 700px) {
+  .schedule-table { font-size: 11px; }
+  .schedule-table th, .schedule-table td { padding: 8px 4px; }
+  .post { width: 20px; height: 20px; line-height: 20px; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<!-- Header -->
+<div class="header">
+  <div class="sub">Weekly Posting Schedule</div>
+  <h1>May – July 2026</h1>
+  <div class="date">Instagram + Facebook · All 11 pages · Based on 14 months of data</div>
+</div>
+
+<!-- Tabs -->
+<div class="tabs">
+  <div class="tab active" onclick="showTab('ig')">📸 Instagram</div>
+  <div class="tab" onclick="showTab('fb')">📘 Facebook</div>
+  <div class="tab" onclick="showTab('combined')">🔄 Combined</div>
+</div>
+
+<!-- INSTAGRAM PANEL -->
+<div class="panel active" id="ig">
+  
+  <div class="section">
+    <div class="section-title ig">📸 Instagram Weekly Schedule</div>
+    <div class="section-sub">5 posts per week per page · Pink dots = post days · Based on best-performing days</div>
+
+    <div class="cards">
+      <div class="card ig">
+        <div class="card-label">Posts per page per week</div>
+        <div class="card-val">5</div>
+      </div>
+      <div class="card ig">
+        <div class="card-label">Total weekly posts</div>
+        <div class="card-val">55</div>
+        <div class="card-sub">11 pages × 5</div>
+      </div>
+      <div class="card ig">
+        <div class="card-label">3-month total</div>
+        <div class="card-val">715</div>
+        <div class="card-sub">13 weeks × 55</div>
+      </div>
+      <div class="card total">
+        <div class="card-label">Ramadan exception</div>
+        <div class="card-val">6/week</div>
+        <div class="card-sub">Ramadan = Daily posting</div>
+      </div>
+    </div>
+
+    <table class="schedule-table">
+      <thead>
+        <tr>
+          <th style="text-align:left; padding-left:16px;">Account</th>
+          <th class="ig-head">Mon</th>
+          <th class="ig-head">Tue</th>
+          <th class="ig-head">Wed</th>
+          <th class="ig-head">Thu</th>
+          <th class="ig-head">Fri</th>
+          <th class="ig-head">Sat</th>
+          <th class="ig-head">Sun</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="name">🇮🇷 Persian</td>
+          <td><span class="post ig">P</span></td>
+          <td><span class="post ig">P</span></td>
+          <td><span class="post ig">P</span></td>
+          <td><span class="post ig">P</span></td>
+          <td><span class="post rest">·</span></td>
+          <td><span class="post ig">P</span></td>
+          <td><span class="post rest">·</span></td>
+        </tr>
+        <tr>
+          <td class="name">🇺🇿 Uzbek</td>
+          <td><span class="post ig">P</span></td>
+          <td><span class="post ig">P</span></td>
+          <td><span class="post ig">P</span></td>
+          <td><span class="post rest">·</span></td>
+          <td><span class="post ig">P</span></td>
+          <td><span class="post rest">·</span></td>
+          <td><span class="post ig">P</span></td>
+        </tr>
+        <tr>
+          <td class="name">🇵🇰 Urdu</td>
+          <td><span class="post rest">·</span></td>
+          <td><span class="post ig">P</span></td>
+          <td><span class="post ig">P</span></td>
+          <td><span class="post ig">P</span></td>
+          <td><span class="post ig">P</span></td>
+          <td><span class="post ig">P</span></td>
+          <td><span class="post rest">·</span></td>
+        </tr>
+        <tr>
+          <td class="name">🇷🇺 Russian</td>
+          <td><span class="post rest">·</span></td>
+          <td><span class="post ig">P</span></td>
+          <td><span class="post ig">P</span></td>
+          <td><span class="post ig">P</span></td>
+          <td><span class="post ig">P</span></td>
+          <td><span class="post rest">·</span></td>
+          <td><span class="post ig">P</span></td>
+        </tr>
+        <tr>
+          <td class="name">🇧🇩 Bangla</td>
+          <td><span class="post ig">P</span></td>
+          <td><span class="post rest">·</span></td>
+          <td><span class="post ig">P</span></td>
+          <td><span class="post ig">P</span></td>
+          <td><span class="post ig">P</span></td>
+          <td><span class="post rest">·</span></td>
+          <td><span class="post ig">P</span></td>
+        </tr>
+        <tr>
+          <td class="name">🌍 Arabic</td>
+          <td><span class="post ig">P</span></td>
+          <td><span class="post rest">·</span></td>
+          <td><span class="post rest">·</span></td>
+          <td><span class="post ig">P</span></td>
+          <td><span class="post ig">P</span></td>
+          <td><span class="post ig">P</span></td>
+          <td><span class="post ig">P</span></td>
+        </tr>
+        <tr>
+          <td class="name">🇮🇳 Hindi</td>
+          <td><span class="post ig">P</span></td>
+          <td><span class="post ig">P</span></td>
+          <td><span class="post rest">·</span></td>
+          <td><span class="post rest">·</span></td>
+          <td><span class="post ig">P</span></td>
+          <td><span class="post ig">P</span></td>
+          <td><span class="post ig">P</span></td>
+        </tr>
+        <tr>
+          <td class="name">🇮🇩 Indonesian</td>
+          <td><span class="post ig">P</span></td>
+          <td><span class="post rest">·</span></td>
+          <td><span class="post ig">P</span></td>
+          <td><span class="post ig">P</span></td>
+          <td><span class="post ig">P</span></td>
+          <td><span class="post rest">·</span></td>
+          <td><span class="post ig">P</span></td>
+        </tr>
+        <tr>
+          <td class="name">🇩🇪 Deutsch</td>
+          <td><span class="post rest">·</span></td>
+          <td><span class="post ig">P</span></td>
+          <td><span class="post ig">P</span></td>
+          <td><span class="post rest">·</span></td>
+          <td><span class="post ig">P</span></td>
+          <td><span class="post ig">P</span></td>
+          <td><span class="post ig">P</span></td>
+        </tr>
+        <tr>
+          <td class="name">🇫🇷 Français</td>
+          <td><span class="post ig">P</span></td>
+          <td><span class="post ig">P</span></td>
+          <td><span class="post ig">P</span></td>
+          <td><span class="post rest">·</span></td>
+          <td><span class="post ig">P</span></td>
+          <td><span class="post rest">·</span></td>
+          <td><span class="post ig">P</span></td>
+        </tr>
+        <tr>
+          <td class="name">🇪🇸 Español</td>
+          <td><span class="post rest">·</span></td>
+          <td><span class="post ig">P</span></td>
+          <td><span class="post ig">P</span></td>
+          <td><span class="post rest">·</span></td>
+          <td><span class="post ig">P</span></td>
+          <td><span class="post ig">P</span></td>
+          <td><span class="post ig">P</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="instructions">
+      <h3>📸 Instagram Posting Guidelines</h3>
+      <ul>
+        <li>Post during peak hours: 5-8 AM UTC (based on past data)</li>
+        <li>Content mix per week: 3 Reels + 1 Carousel + 1 Image post</li>
+        <li>Reel length sweet spot: 45-90 seconds</li>
+        <li>Always add subtitles from frame 1 (sound-off viewers)</li>
+        <li>Every Reel needs a DM-share CTA (#1 ranking signal in 2026)</li>
+        <li>Use 3-5 hashtags maximum — more hurts reach</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- FACEBOOK PANEL -->
+<div class="panel" id="fb">
+  
+  <div class="section">
+    <div class="section-title fb">📘 Facebook Weekly Schedule</div>
+    <div class="section-sub">5 videos per week per page · Blue dots = post days · Optimized for FB-specific audiences</div>
+
+    <div class="cards">
+      <div class="card fb">
+        <div class="card-label">Videos per page per week</div>
+        <div class="card-val">5</div>
+      </div>
+      <div class="card fb">
+        <div class="card-label">Total weekly videos</div>
+        <div class="card-val">55</div>
+        <div class="card-sub">11 pages × 5</div>
+      </div>
+      <div class="card fb">
+        <div class="card-label">3-month total</div>
+        <div class="card-val">715</div>
+        <div class="card-sub">13 weeks × 55</div>
+      </div>
+      <div class="card total">
+        <div class="card-label">Exception pages</div>
+        <div class="card-val">3/week</div>
+        <div class="card-sub">Russian + Deutsch (paused scale)</div>
+      </div>
+    </div>
+
+    <table class="schedule-table">
+      <thead>
+        <tr>
+          <th style="text-align:left; padding-left:16px;">Account</th>
+          <th class="fb-head">Mon</th>
+          <th class="fb-head">Tue</th>
+          <th class="fb-head">Wed</th>
+          <th class="fb-head">Thu</th>
+          <th class="fb-head">Fri</th>
+          <th class="fb-head">Sat</th>
+          <th class="fb-head">Sun</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="name">🇧🇩 Bangla</td>
+          <td><span class="post rest">·</span></td>
+          <td><span class="post fb">F</span></td>
+          <td><span class="post fb">F</span></td>
+          <td><span class="post fb">F</span></td>
+          <td><span class="post fb">F</span></td>
+          <td><span class="post fb">F</span></td>
+          <td><span class="post rest">·</span></td>
+        </tr>
+        <tr>
+          <td class="name">🇵🇰 Urdu</td>
+          <td><span class="post fb">F</span></td>
+          <td><span class="post fb">F</span></td>
+          <td><span class="post rest">·</span></td>
+          <td><span class="post fb">F</span></td>
+          <td><span class="post fb">F</span></td>
+          <td><span class="post fb">F</span></td>
+          <td><span class="post rest">·</span></td>
+        </tr>
+        <tr>
+          <td class="name">🇮🇷 Persian</td>
+          <td><span class="post fb">F</span></td>
+          <td><span class="post fb">F</span></td>
+          <td><span class="post fb">F</span></td>
+          <td><span class="post fb">F</span></td>
+          <td><span class="post fb">F</span></td>
+          <td><span class="post rest">·</span></td>
+          <td><span class="post rest">·</span></td>
+        </tr>
+        <tr>
+          <td class="name">🌍 Arabic</td>
+          <td><span class="post fb">F</span></td>
+          <td><span class="post fb">F</span></td>
+          <td><span class="post rest">·</span></td>
+          <td><span class="post fb">F</span></td>
+          <td><span class="post fb">F</span></td>
+          <td><span class="post rest">·</span></td>
+          <td><span class="post fb">F</span></td>
+        </tr>
+        <tr>
+          <td class="name">🇮🇳 Hindi</td>
+          <td><span class="post fb">F</span></td>
+          <td><span class="post fb">F</span></td>
+          <td><span class="post fb">F</span></td>
+          <td><span class="post rest">·</span></td>
+          <td><span class="post rest">·</span></td>
+          <td><span class="post fb">F</span></td>
+          <td><span class="post fb">F</span></td>
+        </tr>
+        <tr>
+          <td class="name">🇺🇿 Uzbek</td>
+          <td><span class="post rest">·</span></td>
+          <td><span class="post fb">F</span></td>
+          <td><span class="post fb">F</span></td>
+          <td><span class="post fb">F</span></td>
+          <td><span class="post fb">F</span></td>
+          <td><span class="post rest">·</span></td>
+          <td><span class="post fb">F</span></td>
+        </tr>
+        <tr>
+          <td class="name">🇮🇩 Indonesian</td>
+          <td><span class="post fb">F</span></td>
+          <td><span class="post rest">·</span></td>
+          <td><span class="post fb">F</span></td>
+          <td><span class="post fb">F</span></td>
+          <td><span class="post fb">F</span></td>
+          <td><span class="post rest">·</span></td>
+          <td><span class="post fb">F</span></td>
+        </tr>
+        <tr>
+          <td class="name">🇫🇷 Français</td>
+          <td><span class="post fb">F</span></td>
+          <td><span class="post fb">F</span></td>
+          <td><span class="post fb">F</span></td>
+          <td><span class="post rest">·</span></td>
+          <td><span class="post fb">F</span></td>
+          <td><span class="post rest">·</span></td>
+          <td><span class="post fb">F</span></td>
+        </tr>
+        <tr>
+          <td class="name">🇪🇸 Español</td>
+          <td><span class="post fb">F</span></td>
+          <td><span class="post fb">F</span></td>
+          <td><span class="post fb">F</span></td>
+          <td><span class="post rest">·</span></td>
+          <td><span class="post fb">F</span></td>
+          <td><span class="post rest">·</span></td>
+          <td><span class="post fb">F</span></td>
+        </tr>
+        <tr>
+          <td class="name">🇩🇪 Deutsch</td>
+          <td><span class="post rest">·</span></td>
+          <td><span class="post fb">F</span></td>
+          <td><span class="post fb">F</span></td>
+          <td><span class="post rest">·</span></td>
+          <td><span class="post fb">F</span></td>
+          <td><span class="post rest">·</span></td>
+          <td><span class="post rest">·</span></td>
+        </tr>
+        <tr>
+          <td class="name">🇷🇺 Russian</td>
+          <td><span class="post fb">F</span></td>
+          <td><span class="post fb">F</span></td>
+          <td><span class="post rest">·</span></td>
+          <td><span class="post fb">F</span></td>
+          <td><span class="post rest">·</span></td>
+          <td><span class="post rest">·</span></td>
+          <td><span class="post rest">·</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="instructions">
+      <h3>📘 Facebook Posting Guidelines</h3>
+      <ul>
+        <li>Bangla + Urdu: Use 60-90s long-form (best retention)</li>
+        <li>Arabic + Uzbek: Use 15-30s short clips (retention crisis — fix with shorter length)</li>
+        <li>Persian + Hindi: Mix short and long — test both formats weekly</li>
+        <li>Russian + Deutsch: Only 3 posts/week — reduce waste, focus on quality</li>
+        <li>All FB videos need strong thumbnails (unlike IG where first frame plays)</li>
+        <li>Post 6-9 PM local audience time for peak engagement</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- COMBINED PANEL -->
+<div class="panel" id="combined">
+  
+  <div class="section">
+    <div class="section-title">🔄 Combined Weekly Load</div>
+    <div class="section-sub">Both platforms combined · Per-page weekly output</div>
+
+    <div class="cards">
+      <div class="card total">
+        <div class="card-label">Total weekly posts</div>
+        <div class="card-val">110</div>
+        <div class="card-sub">IG 55 + FB 55</div>
+      </div>
+      <div class="card total">
+        <div class="card-label">Per language team</div>
+        <div class="card-val">10/week</div>
+        <div class="card-sub">5 IG + 5 FB</div>
+      </div>
+      <div class="card total">
+        <div class="card-label">3-month total</div>
+        <div class="card-val">1,430</div>
+        <div class="card-sub">13 weeks × 110</div>
+      </div>
+      <div class="card total">
+        <div class="card-label">Average per day</div>
+        <div class="card-val">~16</div>
+        <div class="card-sub">Across all pages</div>
+      </div>
+    </div>
+
+    <table class="schedule-table">
+      <thead>
+        <tr>
+          <th style="text-align:left; padding-left:16px;">Account</th>
+          <th>Mon</th>
+          <th>Tue</th>
+          <th>Wed</th>
+          <th>Thu</th>
+          <th>Fri</th>
+          <th>Sat</th>
+          <th>Sun</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="name">🇮🇷 Persian</td>
+          <td><span class="post ig">IG</span><span class="post fb">FB</span></td>
+          <td><span class="post ig">IG</span><span class="post fb">FB</span></td>
+          <td><span class="post ig">IG</span><span class="post fb">FB</span></td>
+          <td><span class="post ig">IG</span><span class="post fb">FB</span></td>
+          <td><span class="post fb">FB</span></td>
+          <td><span class="post ig">IG</span></td>
+          <td><span class="post rest">·</span></td>
+        </tr>
+        <tr>
+          <td class="name">🇺🇿 Uzbek</td>
+          <td><span class="post ig">IG</span></td>
+          <td><span class="post ig">IG</span><span class="post fb">FB</span></td>
+          <td><span class="post ig">IG</span><span class="post fb">FB</span></td>
+          <td><span class="post fb">FB</span></td>
+          <td><span class="post ig">IG</span><span class="post fb">FB</span></td>
+          <td><span class="post rest">·</span></td>
+          <td><span class="post ig">IG</span><span class="post fb">FB</span></td>
+        </tr>
+        <tr>
+          <td class="name">🇵🇰 Urdu</td>
+          <td><span class="post fb">FB</span></td>
+          <td><span class="post ig">IG</span><span class="post fb">FB</span></td>
+          <td><span class="post ig">IG</span></td>
+          <td><span class="post ig">IG</span><span class="post fb">FB</span></td>
+          <td><span class="post ig">IG</span><span class="post fb">FB</span></td>
+          <td><span class="post ig">IG</span><span class="post fb">FB</span></td>
+          <td><span class="post rest">·</span></td>
+        </tr>
+        <tr>
+          <td class="name">🇷🇺 Russian</td>
+          <td><span class="post fb">FB</span></td>
+          <td><span class="post ig">IG</span><span class="post fb">FB</span></td>
+          <td><span class="post ig">IG</span></td>
+          <td><span class="post ig">IG</span><span class="post fb">FB</span></td>
+          <td><span class="post ig">IG</span></td>
+          <td><span class="post rest">·</span></td>
+          <td><span class="post ig">IG</span></td>
+        </tr>
+        <tr>
+          <td class="name">🇧🇩 Bangla</td>
+          <td><span class="post ig">IG</span></td>
+          <td><span class="post fb">FB</span></td>
+          <td><span class="post ig">IG</span><span class="post fb">FB</span></td>
+          <td><span class="post ig">IG</span><span class="post fb">FB</span></td>
+          <td><span class="post ig">IG</span><span class="post fb">FB</span></td>
+          <td><span class="post fb">FB</span></td>
+          <td><span class="post ig">IG</span></td>
+        </tr>
+        <tr>
+          <td class="name">🌍 Arabic</td>
+          <td><span class="post ig">IG</span><span class="post fb">FB</span></td>
+          <td><span class="post fb">FB</span></td>
+          <td><span class="post rest">·</span></td>
+          <td><span class="post ig">IG</span><span class="post fb">FB</span></td>
+          <td><span class="post ig">IG</span><span class="post fb">FB</span></td>
+          <td><span class="post ig">IG</span></td>
+          <td><span class="post ig">IG</span><span class="post fb">FB</span></td>
+        </tr>
+        <tr>
+          <td class="name">🇮🇳 Hindi</td>
+          <td><span class="post ig">IG</span><span class="post fb">FB</span></td>
+          <td><span class="post ig">IG</span><span class="post fb">FB</span></td>
+          <td><span class="post fb">FB</span></td>
+          <td><span class="post rest">·</span></td>
+          <td><span class="post ig">IG</span></td>
+          <td><span class="post ig">IG</span><span class="post fb">FB</span></td>
+          <td><span class="post ig">IG</span><span class="post fb">FB</span></td>
+        </tr>
+        <tr>
+          <td class="name">🇮🇩 Indonesian</td>
+          <td><span class="post ig">IG</span><span class="post fb">FB</span></td>
+          <td><span class="post rest">·</span></td>
+          <td><span class="post ig">IG</span><span class="post fb">FB</span></td>
+          <td><span class="post ig">IG</span><span class="post fb">FB</span></td>
+          <td><span class="post ig">IG</span><span class="post fb">FB</span></td>
+          <td><span class="post rest">·</span></td>
+          <td><span class="post ig">IG</span><span class="post fb">FB</span></td>
+        </tr>
+        <tr>
+          <td class="name">🇩🇪 Deutsch</td>
+          <td><span class="post rest">·</span></td>
+          <td><span class="post ig">IG</span><span class="post fb">FB</span></td>
+          <td><span class="post ig">IG</span><span class="post fb">FB</span></td>
+          <td><span class="post rest">·</span></td>
+          <td><span class="post ig">IG</span><span class="post fb">FB</span></td>
+          <td><span class="post ig">IG</span></td>
+          <td><span class="post ig">IG</span></td>
+        </tr>
+        <tr>
+          <td class="name">🇫🇷 Français</td>
+          <td><span class="post ig">IG</span><span class="post fb">FB</span></td>
+          <td><span class="post ig">IG</span><span class="post fb">FB</span></td>
+          <td><span class="post ig">IG</span><span class="post fb">FB</span></td>
+          <td><span class="post rest">·</span></td>
+          <td><span class="post ig">IG</span><span class="post fb">FB</span></td>
+          <td><span class="post rest">·</span></td>
+          <td><span class="post ig">IG</span><span class="post fb">FB</span></td>
+        </tr>
+        <tr>
+          <td class="name">🇪🇸 Español</td>
+          <td><span class="post fb">FB</span></td>
+          <td><span class="post ig">IG</span><span class="post fb">FB</span></td>
+          <td><span class="post ig">IG</span><span class="post fb">FB</span></td>
+          <td><span class="post rest">·</span></td>
+          <td><span class="post ig">IG</span><span class="post fb">FB</span></td>
+          <td><span class="post ig">IG</span></td>
+          <td><span class="post ig">IG</span><span class="post fb">FB</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="note">
+    <strong>Team coordination:</strong> Each language content manager is responsible for 10 posts per week (5 IG + 5 FB). The Creative Team (video editor + graphic designer) supports content creation across all languages. Community Manager handles engagement and DM responses. Ali (Head of Content) reviews weekly performance and adjusts strategy.
+  </div>
+
+</div>
+
+<!-- Universal Rules -->
+<div class="section">
+  <div class="instructions">
+    <h3>🎯 Universal Rules for May-July 2026</h3>
+    <ul>
+      <li>Do NOT cross-post blindly — IG and FB audiences are different</li>
+      <li>IG content: Vertical 9:16, 45-90s Reels, subtitles from frame 1</li>
+      <li>FB content: Mix of short (15-30s) and long (60-90s) based on page</li>
+      <li>Save strongest content for each page's peak day (see tables above)</li>
+      <li>DM-share CTAs on every IG Reel ("Send this to...")</li>
+      <li>All videos auto-scheduled in Meta Business Suite to save time</li>
+      <li>Review weekly performance every Monday to adjust next week</li>
+      <li>No posting during Ramadan peaks — different schedule needed</li>
+    </ul>
+  </div>
+</div>
+
+<div class="footer">
+  Towards Eternity Network · Weekly Posting Schedule · May – July 2026
+</div>
+
+</div>
+
+<script>
+function showTab(tabName) {
+  const panels = document.querySelectorAll('.panel');
+  const tabs = document.querySelectorAll('.tab');
+  panels.forEach(p => p.classList.remove('active'));
+  tabs.forEach(t => t.classList.remove('active'));
+  document.getElementById(tabName).classList.add('active');
+  event.target.classList.add('active');
+}
+</script>
+
+</body>
+</html>
